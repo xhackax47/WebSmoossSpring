@@ -1,0 +1,51 @@
+body {
+    font-family                             : 'Roboto Condensed', sans-serif;
+    line-height                             : 1.5;
+    background-color                        : rgb(0, 0, 0);
+    color                                   : #fff;
+}
+
+/* @Author : Twikey */
+
+/*
+--
+--  TABLE CSS
+--
+*/
+table {
+    border-collapse                 :  collapse;
+}
+th {
+    color                           : white;
+    text-align                      : left;
+}
+th, td {
+    padding                         : 15px;
+}
+table tbody tr {
+    border-bottom                   : 1px solid white;
+    color                           : white;
+    cursor                          : pointer;
+}
+td {
+    margin                          : 20px;
+    text-align                      : left;
+}
+tr:hover > td{
+    background-color                : #FCA311;
+    color                           : white;
+}
+.description_td {
+    max-width                       : 500px;
+    text-overflow                   : ellipsis;
+    overflow                        : hidden;
+    white-space                     : nowrap;
+}
+.title_td {
+    font-weight                     : bold;
+    color                           : #FCA311;
+}
+.date_td {
+    color                           : #673ab7;
+    font-weight                     : bold;
+}

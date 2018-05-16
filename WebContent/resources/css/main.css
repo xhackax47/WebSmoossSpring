@@ -1,0 +1,141 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 1.5;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    text-align: center;
+}
+
+.title-home-redirection {
+    flex-direction                      : column;
+    align-items                         : center;
+}
+
+.disconnect-button {
+    margin-top                          : 2%;
+}
+
+
+
+
+p {
+    margin: 0 0 10px 0;
+} 
+
+.clip-svg {
+    width: 0;
+    height: 0;
+}
+
+.clip-caption {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.clip-each {
+    display: block;
+    position: relative;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    -webkit-clip-path: url("#hexagon-clip");
+    clip-path: url("#hexagon-clip");
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+a.clip-each:hover {
+    background: #ffc107;
+    -webkit-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+
+
+.clip-solid {
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #673ab7;
+    background-blend-mode: hard-light;
+    -webkit-transition: all 2.5s linear;
+    transition: all 2.5s linear;
+}
+
+.clip-solid:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-clip-path: polygon(100% 3%, 17% 100%, 100% 100%);
+    clip-path: polygon(100% 3%, 17% 100%, 100% 100%);
+    -webkit-clip-path: url("#triangle-clip");
+    clip-path: url("#triangle-clip");
+    background: #ffc107;
+    z-index: 1;
+    width: 100%;
+    height: 155px;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    pointer-events: none;
+}
+
+.clip-solid:hover:after {
+    height: 0;
+    -webkit-transition: all 0.45s ease-in;
+    transition: all 0.45s ease-in;
+}
+
+.clip-solid:hover .social-share-block {
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.social-share-block {
+    position: absolute;
+    bottom: 20px;
+    right: 75px;
+    color: #fff;
+    font-size: 70%;
+    z-index: 2;
+}
+
+.social-each {
+    font-size: 80%;
+}
+
+.clip-gradient {
+    background: #FFC107;
+    width: 60px;
+    height: 60px;
+}
+
+.clip-gradient .clip-caption {
+    color: rgb(255, 255, 255);
+}
+
+
+.clip-tagline {
+    display: block;
+    color: #758C9B;
+    text-decoration: none;
+    text-align: center;
+}
+
+.spaceInput {
+    margin: 1%;
+}
+.btnFullCol {
+    width: 100%;
+}
+
+.spaceInput {
+    margin: 1%;
+    background: black;
+    border-color: #FFC107;
+}

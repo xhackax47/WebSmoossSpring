@@ -1,0 +1,134 @@
+/* @Author : Twikey  */
+
+body {
+    background-color            : black;
+}
+
+
+#event_title_block {
+    /* border                      : 2px solid red; */
+}
+.img-title-description-event-block {
+	position 					: relative;
+	display						: flex;
+	justify-content 			: center;
+	align-content 				: center;
+	align-items 				: center;
+}
+.title-description-event {
+	position					: absolute;
+    display 					: flex;
+    flex-direction 				: column;
+    align-items 				: center;
+    align-self 					: end;
+    margin-bottom 				: 1%;
+    
+}
+.input-event {
+	background					: transparent;
+	border 						: none;
+	border-bottom 				: 2px solid white;
+	color 						: white;
+	text-align 					: center;
+}
+
+#module_block {
+    /* border                      : 2px solid green; */
+}
+
+/* Start__@Author : Youli*/ 
+#imgParty { 
+    width                       : 100% !important;
+    min-width                   : 100% !important;
+}
+
+.Style5 {
+    position                    : absolute;
+    left                        : 38%;
+    top                         : 35%;
+    font-size                   : 36px;
+    color                       : #fff;
+}
+
+.event-info {
+    color                       : #fff;
+    
+    display 					: flex;
+}
+/*End__@Author : Youli */
+
+.modules_blocks {
+    border                      : 2px solid salmon;
+    height                      : 200px;
+    cursor                      : pointer;
+    background-color            : #673ab7;
+}
+
+.map_img {
+    height                      : 300px;
+    width                       : auto;
+}
+
+.color_text {
+    color                       : white;
+}
+
+.center_icon_test {
+    display                     : flex !important;
+    justify-content             : center;
+    align-items                 : center;
+    margin-right                : 5%;
+    margin-top                  : 5%;
+    cursor                      : pointer;
+}
+
+.center_icon_test:hover {
+    opacity                     : 0.2;
+}
+
+
+.hexagon_module {
+    position                    : relative;
+    width                       : 200px; 
+    height                      : 115.47px;
+    background-color            : #673ab7;
+    margin                      : 57.74px 0;
+}
+  
+.hexagon_module:before,
+.hexagon_module:after {
+    content                     : "";
+    position                    : absolute;
+    width                       : 0;
+    border-left                 : 100px solid transparent;
+    border-right                : 100px solid transparent;
+}
+  
+.hexagon_module:before {
+    bottom                      : 100%;
+    border-bottom               : 57.74px solid #673ab7;
+}
+
+.hexagon_module:after {
+    top                         : 100%;
+    width                       : 0;
+    border-top                  : 57.74px solid #673ab7;
+}
+
+.hexagon_module a {
+    text-decoration             : none;
+    color                       : white;
+}
+
+#button_redirect_home {
+    background-color            : #ffc107;
+    color                       : white;
+    text-decoration             : none;
+    width                       : 200px;
+    height                      : 35px;
+    border-radius               : 5px;
+    display                     : flex;
+    justify-content             : center;
+    align-items                 : center;
+    font-weight                 : bold;
+}

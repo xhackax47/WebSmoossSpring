@@ -1,0 +1,54 @@
+#volet {
+    width: 180px;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    text-align: right;
+    color: #FFC107;
+    position: relative;
+    left: -223px; /* last value was -270px (bug)*/
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+}
+
+#volet a.ouvrir,
+#volet a.fermer {
+    padding: 5px 10px;
+    background: #FFC107;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    right: -110px;
+    top: 10px;
+
+    /* quelques styles CSS3 */
+    -ms-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+
+    border-radius: 0 0 8px 8px;
+}
+
+#disconnect {
+    color: #fff;
+}
+
+#volet:target {
+    left: 0;
+}
+
+#volet_clos:target #volet {
+    left: -223px;
+}
+
+#volet a.fermer {
+    display: none;
+}
+
+#volet:target a.ouvrir {
+    display: none;
+}
+
+#volet:target a.fermer {
+    display: block;
+}

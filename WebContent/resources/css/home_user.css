@@ -1,0 +1,79 @@
+/* @Author : Twikey */
+
+/*
+--
+--  TABLE CSS
+--
+*/
+table {
+    border-collapse                 :  collapse;
+}
+th {
+    color                           : white;
+    text-align                      : left;
+}
+th, td {
+    padding                         : 15px;
+}
+table tbody tr {
+    border-bottom                   : 1px solid white;
+    color                           : white;
+    cursor                          : pointer;
+}
+td {
+    margin                          : 20px;
+    text-align                      : left;
+}
+tr:hover > td{
+    background-color                : #FCA311;
+    color                           : white;
+}
+.description_td {
+    max-width                       : 500px;
+    text-overflow                   : ellipsis;
+    overflow                        : hidden;
+    white-space                     : nowrap;
+}
+.title_td {
+    font-weight                     : bold;
+    color                           : #FCA311;
+}
+.date_td {
+    color                           : #673ab7;
+    font-weight                     : bold;
+}
+
+
+
+/*
+--
+--  MODAL INFO EVENT CSS
+--
+*/
+#modalInformationEvent {
+    color                           : black;
+}
+#div_modal_title {
+    display                         : flex;
+    justify-content                 : center;
+    align-content                   : center;
+}
+#block_body_event {
+    display                         : flex;
+    justify-content                 : space-between;
+}
+.block_description_date_event {
+    display                         : flex;
+    flex-direction                  : column;
+    justify-content                 : space-around;
+    align-content                   : center;
+}
+#modal_date_event {
+    font-weight                     : bold;
+}
+#modalEventInfo {
+	color 							: black;
+}
+.modal-dialog {
+    max-width 						: 600px !important;
+}
