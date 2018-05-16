@@ -67,6 +67,6 @@ public class AuthController {
 		}
 		us.create(userForm);
 		//TODO auto login !!!
-		return "home";
+		return "redirect:home";
 	}
 }
