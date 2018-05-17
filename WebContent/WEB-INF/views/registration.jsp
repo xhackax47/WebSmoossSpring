@@ -11,12 +11,12 @@
 <link rel="stylesheet"
 	href='<spring:url value="resources/css/bootstrap/bootstrap.min.css"/>' />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
-	<link rel="stylesheet" href="resources/css/registration.css"/>
+	<link rel="stylesheet" href="resources/css/registrationLogin.css"/>
 </head>
 <body>
-	<div class="container">
+	<div class="container formRegistrationSignIn">
 		<form:form method="POST" modelAttribute="userForm">
-			<h1>Inscription</h1>
+			<h1 class="text-center">Inscription</h1>
 			<div class="form-group">
 				<spring:bind path="lastName">
 					<div class="input-group">
@@ -46,20 +46,6 @@
 				</spring:bind>
 			</div>
 			<div class="form-group">
-				<spring:bind path="email">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<i class="fas fa-at"></i>
-							</div>
-						</div>
-						<form:input type="email" class="form-control input_modal"
-							path="email" placeholder="Adresse mail"/>
-					</div>
-					<form:errors cssClass="errors" path="email"/>
-				</spring:bind>
-			</div>
-			<div class="form-group">
 				<spring:bind path="nickName">
 					<div class="input-group">
 						<div class="input-group-prepend">
@@ -71,6 +57,20 @@
 							path="nickName" placeholder="Pseudo"/>
 					</div>	
 					<form:errors cssClass="errors" path="nickName"/>
+				</spring:bind>
+			</div>
+			<div class="form-group">
+				<spring:bind path="email">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-at"></i>
+							</div>
+						</div>
+						<form:input type="email" class="form-control input_modal"
+							path="email" placeholder="Adresse mail"/>
+					</div>
+					<form:errors cssClass="errors" path="email"/>
 				</spring:bind>
 			</div>
 			<div class="form-group">
@@ -109,8 +109,7 @@
 				<a href="cgu.view" style="padding: 10px;">J'ai lu et j'accepte
 					les Conditions Générales d'Utilisation</a>
 			</div>
-			<button type="submit" class="btn button_submit_modal"
-				id="button_submit_inscription_modal">Devenir un Smoosser !</button>
+			<button type="submit" class="btn btn-primary button-submit">S'inscrire</button>
 
 		</form:form>
 	</div>
