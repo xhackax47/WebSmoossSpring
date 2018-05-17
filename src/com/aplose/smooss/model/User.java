@@ -10,7 +10,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Transient;
 
-import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * This class will create a User.  
@@ -41,7 +40,7 @@ public class User{
 
 	public User(String email, String password, String firstName, String lastName, String nickName, String picture) {
 		this.email = email;
-		this.password = new DigestUtils(DigestUtils.getDigest("MD5")).digestAsHex(password);
+		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nickName = nickName;
@@ -51,12 +50,15 @@ public class User{
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -64,6 +66,7 @@ public class User{
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;	
 	}
@@ -71,9 +74,11 @@ public class User{
 	public String getFirstName() {
 		return firstName;
 	}
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -81,6 +86,7 @@ public class User{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
 	public String getNickName() {
 		return nickName;
 	}
@@ -88,26 +94,23 @@ public class User{
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
+	
 	public String getPicture() {
 		return picture;
 	}
+	
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-
-	public void update(String email, String password, String firstName, String lastName, String nickName,
-			String picture) {
-		
-	}
-
+	
 	public String getPasswordConf() {
 		return passwordConf;
 	}
-
+	
 	public void setPasswordConf(String passwordConf) {
 		this.passwordConf = passwordConf;
 	}
-
+	
 	public String getCheckBoxCGU() {
 		return checkBoxCGU;
 	}

@@ -1,27 +1,17 @@
 package com.aplose.smooss.controller;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.aplose.smooss.model.Event;
 import com.aplose.smooss.model.Picture;
-import com.aplose.smooss.model.User;
 import com.aplose.smooss.services.EventService;
 import com.aplose.smooss.services.PictureService;
-import com.aplose.smooss.tools.ImageTools;
-import com.aplose.smooss.tools.StringTools;
 
 @MultipartConfig(location = "/tmp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024
 		* 5, maxRequestSize = 1024 * 1024 * 5 * 5)
