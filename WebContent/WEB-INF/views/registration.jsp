@@ -11,99 +11,100 @@
 <link rel="stylesheet"
 	href='<spring:url value="resources/css/bootstrap/bootstrap.min.css"/>' />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+	<link rel="stylesheet" href="resources/css/registration.css"/>
 </head>
 <body>
 	<div class="container">
 		<form:form method="POST" modelAttribute="userForm">
 			<h1>Inscription</h1>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-user"></i>
-						</div>
-					</div>
-					<spring:bind path="lastName">
+				<spring:bind path="lastName">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-user"></i>
+							</div>
+						</div>	
 						<form:input type="text" class="form-control input_modal"
-							path="lastName" placeholder="Nom"></form:input>
-						<form:errors path="lastName"></form:errors>
-					</spring:bind>
-				</div>
+								path="lastName" placeholder="Nom"/>
+					</div>
+					<form:errors cssClass="errors" path="lastName"/>
+				</spring:bind>
 			</div>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-user"></i>
+				<spring:bind path="firstName">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-user"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="firstName">
 						<form:input type="text" class="form-control input_modal"
-							path="firstName" placeholder="Prénom"></form:input>
-						<form:errors path="firstName"></form:errors>
-					</spring:bind>
-				</div>
+							path="firstName" placeholder="Prénom"/>
+					</div>
+					<form:errors cssClass="errors" path="firstName"/>
+				</spring:bind>
 			</div>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-at"></i>
+				<spring:bind path="email">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-at"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="email">
 						<form:input type="email" class="form-control input_modal"
-							path="email" placeholder="Adresse mail"></form:input>
-						<form:errors path="email"></form:errors>
-					</spring:bind>
-				</div>
+							path="email" placeholder="Adresse mail"/>
+					</div>
+					<form:errors cssClass="errors" path="email"/>
+				</spring:bind>
 			</div>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-user"></i>
+				<spring:bind path="nickName">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-user"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="nickName">
 						<form:input type="text" class="form-control input_modal"
-							path="nickName" placeholder="Pseudo"></form:input>
-						<form:errors path="nickName"></form:errors>
-					</spring:bind>
-				</div>
+							path="nickName" placeholder="Pseudo"/>
+					</div>	
+					<form:errors cssClass="errors" path="nickName"/>
+				</spring:bind>
 			</div>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-lock"></i>
+				<spring:bind path="password">	
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-lock"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="password">
 						<form:input type="password" class="form-control input_modal"
-							path="password" placeholder="Mot de passe"></form:input>
-						<form:errors path="password"></form:errors>
-					</spring:bind>
-				</div>
+							path="password" placeholder="Mot de passe"/>
+					</div>
+					<form:errors cssClass="errors" path="password"/>
+				</spring:bind>
 			</div>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-lock"></i>
+				<spring:bind path="passwordConf">	
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-lock"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="passwordConf">
 						<form:input type="password" class="form-control input_modal"
-							path="passwordConf" placeholder="Confirmation mot de passe"></form:input>
-						<form:errors path="passwordConf"></form:errors>
-					</spring:bind>
-				</div>
+							path="passwordConf" placeholder="Confirmation mot de passe"/>
+					</div>
+					<form:errors cssClass="errors" path="passwordConf"/>
+				</spring:bind>				
 			</div>
 			<div class="form-group" style="text-align: center;">
 				<spring:bind path="checkBoxCGU">
 					<form:checkbox id="checkBoxCGU" value="on" path="checkBoxCGU" />
-					<form:errors path="checkBoxCGU"></form:errors>
+					<form:errors path="checkBoxCGU"/>
 				</spring:bind>
 				<a href="cgu.view" style="padding: 10px;">J'ai lu et j'accepte
 					les Conditions Générales d'Utilisation</a>

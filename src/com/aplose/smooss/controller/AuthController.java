@@ -2,6 +2,8 @@ package com.aplose.smooss.controller;
 
 import java.io.IOException;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,16 +12,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.aplose.smooss.exception.EmailException;
-import com.aplose.smooss.model.Event;
 import com.aplose.smooss.model.Login;
 import com.aplose.smooss.model.User;
 import com.aplose.smooss.services.UserService;
+import com.aplose.smooss.validator.UserValidator;
 
 @Controller
 public class AuthController {
 	@Autowired
 	private UserService us;
 
+	@Autowired
+	private UserValidator userValidator;
+	
 	@GetMapping(value="/")
 	public String index() {
 		return "index";
@@ -58,15 +63,19 @@ public class AuthController {
 	}
 	
 	@PostMapping(value="/registration")
-	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model)
+	public String registration(@Valid @ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model)
 			throws EmailException {
-//		TODO
-//		userValidator.validate(userForm, bindingResult);
+
+		userValidator.validate(userForm, bindingResult);
+		
 		if (bindingResult.hasErrors()) {
 			return "registration";
 		}
+		
 		us.create(userForm);
+		
 		//TODO auto login !!!
-		return "home";
+		
+		return "redirect:home";
 	}
 }

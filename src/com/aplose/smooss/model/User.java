@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Transient;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -15,6 +17,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author SmoossTeam
  */
 @Entity
+@NamedQueries({@NamedQuery(name="User.findByEmail", query="Select u from User u where u.email = :email")})
 public class User{
 
 	@Id
@@ -62,7 +65,7 @@ public class User{
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = new DigestUtils(DigestUtils.getDigest("MD5")).digestAsHex(password);	
+		this.password = password;	
 	}
 	
 	public String getFirstName() {
