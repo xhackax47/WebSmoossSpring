@@ -22,6 +22,7 @@ public class PictureService {
 
 	@PersistenceContext
 	private EntityManager em;
+	
 	@Autowired
 	private EventService es;
 	

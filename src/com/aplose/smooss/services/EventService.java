@@ -19,7 +19,7 @@ public class EventService {
 
 	@PersistenceContext
 	private EntityManager em;
-	private TypedQuery<Event> queryFindEventByUser;
+	
 	private static FactoryModule fm = new FactoryModule();
 
 	@Transactional
@@ -35,10 +35,10 @@ public class EventService {
 	
 	@Transactional(readOnly = true)
 	public List<Event> findEventsByUser(User user) {
-		if (queryFindEventByUser == null) {
-			queryFindEventByUser = em.createQuery("SELECT e FROM Event e WHERE admin = :user ", Event.class);
-		}
+		
+		TypedQuery<Event> queryFindEventByUser = em.createQuery("SELECT e FROM Event e WHERE admin = :user ", Event.class);
 		queryFindEventByUser.setParameter("user", user);
+		
 		List<Event> result = null;
 		try {
 			result = queryFindEventByUser.getResultList();

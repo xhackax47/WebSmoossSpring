@@ -20,18 +20,8 @@ public class UserService {
 
 	@Transactional
 	public void create(User u) throws EmailException {
-
-//		try {
-			u.setPassword(new DigestUtils(DigestUtils.getDigest("MD5")).digestAsHex(u.getPassword()));
-			em.persist(u);
-			
-//		}catch(PersistenceException e) {
-//			((EntityTransaction) em).rollback();
-//			u.setId(0);
-//			
-//			throw new EmailException("Oh mec t'as déjà un compte SMOOS Connecte-toi!");
-//		}
-
+		u.setPassword(new DigestUtils(DigestUtils.getDigest("MD5")).digestAsHex(u.getPassword()));
+		em.persist(u);
 	}
 	
 	
@@ -51,6 +41,13 @@ public class UserService {
 	}
 	
 	
+	/**
+	 * findByEmailAndPassword
+	 * Method that will find a user with a specific email and password
+	 * @param email
+	 * @param password
+	 * @return u
+	 */
 	public User findByEmailAndPassword(String email, String password) {
 
 		User u = null;
@@ -70,6 +67,12 @@ public class UserService {
 		return u; 
 	}
 	
+	/**
+	 * findUserByEmail
+	 * Method that will look for an existingEmail
+	 * @param email 
+	 * @return u
+	 */
 	public User findUserByEmail(String email) {
 		User u = null;
 		TypedQuery<User> findUserByEmail =  em.createNamedQuery("User.findByEmail", User.class);
@@ -82,11 +85,5 @@ public class UserService {
 			// TODO ajouter une log si nécessaire
 		}
 		return u;
-	}
-	
-	public User read(String email, String password, String firstName, String lastName, String nickName,
-			String picture) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

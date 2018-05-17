@@ -21,7 +21,7 @@ public class InviteService {
 	
 	@PersistenceContext
 	private EntityManager em;
-	private TypedQuery<Invite> findInviteByUser;
+
 	
 	
 	@Transactional
@@ -39,10 +39,7 @@ public class InviteService {
 	public List<Invite> findInvitesByUser(User login) {
 		List<Invite> result = new ArrayList<Invite>();
 //		Invite i = null;
-		if(findInviteByUser == null) {
-			findInviteByUser = em.createQuery("SELECT i FROM Invite i, User u WHERE event=:event, invited=:invited",Invite.class);
-
-		}
+		TypedQuery<Invite> findInviteByUser = em.createQuery("SELECT i FROM Invite i, User u WHERE event=:event, invited=:invited",Invite.class);
 		findInviteByUser.setParameter("login", login);
 		
 		try {
