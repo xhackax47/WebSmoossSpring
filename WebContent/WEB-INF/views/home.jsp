@@ -191,6 +191,12 @@
 								<form:errors path="endTimeEvent"/>
 							</spring:bind>
 						</div>
+						<c:forEach var="module" items="${listModule}">
+							<div class="form-check">								
+								<form:checkbox path="listModule" value="${module}" cssClass="form-check-input"/>
+								<label for="${module}" class="form-check-label">${module}</label>
+							</div>
+						</c:forEach>
 						<!-- <h5 style="color: black">Selectionner vos modules pour votre
 							évènement:</h5>
 						<div class="form-check">

@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 /**
  * This abstract parent class gives default template for a module,
  * a name and a TypeModule enum.
@@ -16,8 +15,8 @@ public abstract class Module {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
 	private String name = "Default Module Name";
-	private TypeModule type = TypeModule.DefaultType;
-
+	private TypeModule type;
+	
 	public String getName() {
 		return name;
 	}
@@ -27,7 +26,6 @@ public abstract class Module {
 	}
 	
 	public enum TypeModule {
-		DefaultType, 
 		PlaylistModule,
 		TriCountModule,
 		PicturesModule,

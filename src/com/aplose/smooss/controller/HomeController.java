@@ -13,10 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.aplose.smooss.model.Event;
+import com.aplose.smooss.model.Module.TypeModule;
 import com.aplose.smooss.model.User;
 import com.aplose.smooss.services.EventService;
 
@@ -33,6 +31,7 @@ public class HomeController {
 		List<Event> events = es.findEventsByUser(user);
 		model.addAttribute("events", events);
 		model.addAttribute("eventForm", new Event());
+		model.addAttribute("listModule", TypeModule.values());
 	
 		return "home";
 	}

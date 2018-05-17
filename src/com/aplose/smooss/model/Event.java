@@ -44,6 +44,8 @@ public class Event{
 	private String endDateEvent;
 	@Transient
 	private String endTimeEvent;
+	@Transient
+	private String[] listModule;
 	
 	@OneToMany
 	List<Module> modules = new ArrayList<Module>();
@@ -165,6 +167,14 @@ public class Event{
 
 	public void setEndTimeEvent(String endTimeEvent) {
 		this.endTimeEvent = endTimeEvent;
+	}
+
+	public String[] getListModule() {
+		return listModule;
+	}
+
+	public void setListModule(String[] listModule) {
+		this.listModule = listModule;
 	}
 	
 	
