@@ -143,7 +143,7 @@
 						<div class="form-group">
 							<label for="name">Nom :</label>
 							<spring:bind path="name">
-								<form:input type="text" class="form-control input_modal"
+								<form:input type="text" maxlength="70" class="form-control input_modal"
 									path="name" placeholder="Nom"/>
 								<form:errors path="name"/>
 							</spring:bind>

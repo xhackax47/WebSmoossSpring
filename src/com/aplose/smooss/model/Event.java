@@ -27,6 +27,7 @@ public class Event{
 	private long id;
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private User admin ;
+	@Column (length=70)
 	private String name;
 	@Column (length=280)
 	private String description;
