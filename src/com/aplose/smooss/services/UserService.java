@@ -40,6 +40,17 @@ public class UserService {
 		em.merge(u);
 	}
 	
+	@Transactional
+	public void delete(User u) {
+		em.remove(u);
+	}
+	
+	@Transactional
+	public void deleteById(long id) {
+		User u = em.find(User.class, id);
+		em.remove(u);
+	}
+	
 	
 	/**
 	 * findByEmailAndPassword
