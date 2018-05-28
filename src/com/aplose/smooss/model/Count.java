@@ -12,6 +12,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Count {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;

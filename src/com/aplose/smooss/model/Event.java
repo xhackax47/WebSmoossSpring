@@ -3,6 +3,7 @@ package com.aplose.smooss.model;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 /**
  * This class will create an Event with a User admin, 
  * a list of Module and a list of User.
@@ -22,21 +25,25 @@ import javax.persistence.Transient;
  */
 @Entity
 public class Event{
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne
 	private User admin ;
-	@Column (length=70)
 	private String name;
 	@Column (length=280)
 	private String description;
-	private String localisation;	
+	private String localisation;
 	private Instant start;
 	private Instant end;
 	@Lob
 	private String picture;
-	
+	@OneToMany
+	List<Module> modules = new ArrayList<Module>();
+	@ManyToMany
+	List<User> participants = new ArrayList<User>();
+
 	@Transient
 	private String startDateEvent;
 	@Transient
@@ -46,14 +53,10 @@ public class Event{
 	@Transient
 	private String endTimeEvent;
 	@Transient
-	private String[] listModule;
+	private String[] listModule;	
+	@Transient
+	private CommonsMultipartFile fileData;
 	
-	@OneToMany
-	List<Module> modules = new ArrayList<Module>();
-
-	@ManyToMany
-	List<User> participants = new ArrayList<User>();
-
 	public Event() {}
 	
 	public Event(User admin, String name, String description, String localisation, Instant start, Instant end, String picture) {	
@@ -97,7 +100,6 @@ public class Event{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
 	public String getLocalisation() {
 		return localisation;
 	}
@@ -105,12 +107,12 @@ public class Event{
 	public void setLocalisation(String localisation) {
 		this.localisation = localisation;
 	}
-	
+
 	public Instant getStart() { 
 		return this.start;
 	}
 	
-	public void setStart(Instant s) { 
+	public void setStart(Instant s) {
 		this.start = s;
 	}
 	
@@ -129,7 +131,7 @@ public class Event{
 	public List<Module> getModules() {
 		return modules;
 	}
-	
+
 	public String getPicture() {
 		return picture;
 	}
@@ -177,6 +179,13 @@ public class Event{
 	public void setListModule(String[] listModule) {
 		this.listModule = listModule;
 	}
-	
+
+	public CommonsMultipartFile getFileData() {
+		return fileData;
+	}
+
+	public void setFileData(CommonsMultipartFile fileData) {
+		this.fileData = fileData;
+	}
 	
 }

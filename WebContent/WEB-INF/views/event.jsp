@@ -44,10 +44,16 @@
 					<input type="submit" class="btn btn-info" name="submitButton" id="submitButton" value="Créer mon Smooss">
 	            </div> -->
 	</form>
-
 	<div class="row justify-content-around mt-5 color_text"
 		id="module_block">
-		<div class="hexagon_module">
+		<c:forEach var="module" items="${modules}">
+			<div class="hexagon_module">
+				<a href="#"> <i class="${module.iJspClass} fa-5x center_icon_test"></i></a>
+			</div>
+		</c:forEach>
+	</div>
+
+	<!-- 	<div class="hexagon_module">
 			<a href="#"> <i class="fas fa-music fa-5x center_icon_test"></i>
 			</a>
 		</div>
@@ -76,8 +82,8 @@
 			<a href="#"> <i
 				class="fas fa-people-carry fa-5x center_icon_test"></i>
 			</a>
-		</div>
-	</div>
+		</div> -->
+
 	<div class="row justify-content-center mt-5">
 
 		<form action="/DeleteEvent" method="post">
@@ -103,7 +109,7 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-	<script src="js/event.js"></script>
+	<script src="resources/js/event.js"></script>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 package com.aplose.smooss.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+
 
 /**
  * This class extends Module.
@@ -10,36 +12,33 @@ import javax.persistence.Entity;
 @Entity
 public class BringModule extends Module {
 	
-	private TypeOfBring typeOfBrings;
-	private String what;
-	private String howMany;
+	@Enumerated
+	private TypeOfBring bringModuleType;
 	private String who;
+	private String howMany;
+	private String what;
 	
-	public enum TypeOfBring {
-		drink,
-		sugared,
-		salted,
-		others;	
-	}
 	
 	public TypeOfBring getBringModuleType() {
-		return typeOfBrings;
+		return bringModuleType;
 	}
 	
-	public void setBringModuleType(TypeOfBring typeOfBrings) {
-		this.typeOfBrings = typeOfBrings;
+	public void setBringModuleType(TypeOfBring bringModuleType) {
+		this.bringModuleType = bringModuleType;
 	}
-		
+	
 	public String getWhat() {
 		return what;
 	}
+
 	public void setWhat (String what) {
 		this.what = what;
 	}
-	
+
 	public String getHowMany() {
 		return howMany;
 	}
+	
 	public void setHowMany (String howmany) {
 		this.howMany = howmany;
 	}
@@ -47,8 +46,8 @@ public class BringModule extends Module {
 	public String getWho() {
 		return who;
 	}
+	
 	public void setWho(String who) {
 		this.who = who;
-	}
-		
+	}		
 }

@@ -10,6 +10,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Transient;
 
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
  * This class will create a User.  
@@ -35,16 +37,21 @@ public class User{
 	private String passwordConf;
 	@Transient
 	private String checkBoxCGU;
+	@Transient
+	private CommonsMultipartFile fileData;
 	
-	public User() {	}
+	
+	public User(){}
 
 	public User(String email, String password, String firstName, String lastName, String nickName, String picture) {
+		
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nickName = nickName;
 		this.picture = picture;
+		
 	}
 	
 	public long getId() {
@@ -102,15 +109,15 @@ public class User{
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	
+
 	public String getPasswordConf() {
 		return passwordConf;
 	}
-	
+
 	public void setPasswordConf(String passwordConf) {
 		this.passwordConf = passwordConf;
 	}
-	
+
 	public String getCheckBoxCGU() {
 		return checkBoxCGU;
 	}
@@ -119,4 +126,12 @@ public class User{
 		this.checkBoxCGU = checkBoxCGU;
 	}
 
+	public CommonsMultipartFile getFileData() {
+		return fileData;
+	}
+
+	public void setFileData(CommonsMultipartFile fileData) {
+		this.fileData = fileData;
+	}
+	
 }

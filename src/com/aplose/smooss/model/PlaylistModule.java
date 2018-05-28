@@ -7,17 +7,20 @@ import javax.persistence.OneToMany;
 
 
 /**
- * This class extends Module and create a PlaylistModule
- * It contains a list of Playlist.
- * @author SmoossTeam
+ * Class PlaylistModule that will manage the playlist for an event
+ * @author formation
+ *
  */
+
 @Entity
 public class PlaylistModule extends Module {
+	
 	@OneToMany
 	private List<Playlist> playlists;
+	
+	
 
 	public List<Playlist> getPlaylists() {
 		return playlists;
-	}
-	
+	}	
 }

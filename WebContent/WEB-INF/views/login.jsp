@@ -18,32 +18,33 @@
 		<form:form method="POST" modelAttribute="loginForm">
 			<h1 class="text-center">Connexion</h1>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-user"></i>
+				<spring:bind path="email">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-user"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="email">
 						<form:input type="email" class="form-control input_modal"
-							path="email" placeholder="Adresse mail"></form:input>
-						<form:errors cssClass="errors" path="email"></form:errors>
-					</spring:bind>
-				</div>
+							path="email" placeholder="Adresse mail"/>
+					</div>
+					<form:errors cssClass="errors" path="email"/>
+				</spring:bind>
 			</div>
 			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">
-							<i class="fas fa-lock"></i>
+				<spring:bind path="password">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="fas fa-lock"></i>
+							</div>
 						</div>
-					</div>
-					<spring:bind path="password">
 						<form:input type="password" class="form-control input_modal"
-							path="password" placeholder="Mot de passe"></form:input>
-						<form:errors cssClass="errors" path="password"></form:errors>
-					</spring:bind>
-				</div>
+							path="password" placeholder="Mot de passe"/>
+					</div>
+					<form:errors cssClass="errors" path="password"/>
+					<span class="errors">${globalError}</span>
+				</spring:bind>
 			</div>
 			<button type="submit" class="btn btn-primary button-submit">Connexion !</button>
 		</form:form>

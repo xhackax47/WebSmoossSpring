@@ -12,6 +12,8 @@ public class ChatModule extends Module{
 	private String name;
 	private String message; 
 	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -30,5 +32,4 @@ public class ChatModule extends Module{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
 }

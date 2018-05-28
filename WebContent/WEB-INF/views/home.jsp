@@ -18,7 +18,6 @@
 <body>
 	<div class="container-fluid">
 		<div class="row" id="disconnect_button">
-			<!-- Include for the html of the disconnect_button -->
 			<%@ include file="disconnect_button.jsp"%>
 		</div>
 
@@ -129,21 +128,21 @@
 					<h5 class="modal-title" id="exampleModalLabel"
 						style="color: black;">Nouvel évènement</h5>
 				</div>
-				<form:form method="POST" modelAttribute="eventForm">
+				<form:form method="POST" modelAttribute="eventForm" enctype="multipart/form-data">
 					<div class="modal-body">
-<%-- 						<div class="form-group">
-							<label for="pictureEvent" style="color: black;">Choisir
+ 						<div class="form-group">
+							<label for="fileData" style="color: black;">Choisir
 								une image :</label>
-							<spring:bind path="pictureEvent">
+							<spring:bind path="fileData">
 								<form:input type="file" class="form-control input_modal"
-									path="pictureEvent" accept="image/*"></form:input>
-								<form:errors path="pictureEvent"></form:errors>
+									path="fileData"/>
+								<form:errors path="fileData"/>
 							</spring:bind>
-						</div> --%>
+						</div> 
 						<div class="form-group">
 							<label for="name">Nom :</label>
 							<spring:bind path="name">
-								<form:input type="text" maxlength="70" class="form-control input_modal"
+								<form:input type="text" class="form-control input_modal"
 									path="name" placeholder="Nom"/>
 								<form:errors path="name"/>
 							</spring:bind>
@@ -153,7 +152,7 @@
 							<spring:bind path="description">
 								<form:textarea maxlength="280" style="resize: none;"
 								class="input-event form-control" rows="4" cols="50" path="description" placeholder="Description"/>
-								<form:errors path="description"></form:errors>
+								<form:errors path="description"/>
 							</spring:bind>
 						</div>
 						<div class="form-group">
@@ -194,48 +193,9 @@
 						<c:forEach var="module" items="${listModule}">
 							<div class="form-check">								
 								<form:checkbox path="listModule" value="${module}" cssClass="form-check-input"/>
-								<label for="${module}" class="form-check-label">${module}</label>
+								<label for="${module}" class="form-check-label">${module.name}</label>
 							</div>
 						</c:forEach>
-						<!-- <h5 style="color: black">Selectionner vos modules pour votre
-							évènement:</h5>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input"
-								id="PlaylistModule" name="PlaylistModule" value="checked">
-							<label class="form-check-label" for="PlaylistModule">PlayList</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input"
-								id="TriCountModule" name="TriCountModule" value="checked">
-							<label class="form-check-label" for="TriCountModule">Gestion
-								des dépenses</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input"
-								id="PicturesModule" name="PicturesModule" value="checked">
-							<label class="form-check-label" for="PicturesModule">Photos</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input" id="ChatModule"
-								name="ChatModule" value="checked"> <label
-								class="form-check-label" for="ChatModule">Chat</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input"
-								id="MiniGameModule" name="MiniGameModule" value="checked">
-							<label class="form-check-label" for="MiniGameModule">Mini-jeux</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input"
-								id="CarpoolingModule" name="CarpoolingModule" value="checked">
-							<label class="form-check-label" for="CarpoolingModule">Covoiturage</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input" id="BringModule"
-								name="BringModule" value="checked"> <label
-								class="form-check-label" for="BringModule">Liste de
-								courses</label>
-						</div>-->
 					</div> 
 					<div class="modal-footer justify-content-center"
 						style="flex-direction: column;">

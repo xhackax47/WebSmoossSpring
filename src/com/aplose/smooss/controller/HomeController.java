@@ -1,11 +1,15 @@
 package com.aplose.smooss.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.time.Instant;
 import java.util.List;
-
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +17,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import com.aplose.smooss.model.Event;
-import com.aplose.smooss.model.Module.TypeModule;
+import com.aplose.smooss.model.TypeModule;
 import com.aplose.smooss.model.User;
 import com.aplose.smooss.services.EventService;
+import com.aplose.smooss.tools.ImageTools;
+import com.aplose.smooss.tools.StringTools;
 
 @Controller
+@MultipartConfig(location = "/tmp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024
+* 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class HomeController {
 
 	@Autowired
@@ -37,56 +50,60 @@ public class HomeController {
 	}
 	
 	@PostMapping(value = "/home")
-	public String createEvent(@ModelAttribute("eventForm") Event eventForm, Model model, HttpSession session) throws IOException, ServletException {
-		User admin = (User) session.getAttribute("user");
+	public String createEvent(@RequestParam("fileData") MultipartFile file,@ModelAttribute("eventForm") Event eventForm, Model model, HttpSession session) throws IOException, ServletException {
+		User admin 		= (User) session.getAttribute("user");	
+		Instant start 	= formatDateAndTime(eventForm.getStartDateEvent(), eventForm.getStartTimeEvent());
+		Instant end 	= formatDateAndTime(eventForm.getEndDateEvent(), eventForm.getEndTimeEvent());
+		eventForm.setAdmin(admin);
 		
-		Instant start = formatDateAndTime(eventForm.getStartDateEvent(), eventForm.getStartTimeEvent());
-		Instant end = formatDateAndTime(eventForm.getEndDateEvent(), eventForm.getEndTimeEvent());
-
         if ( start.isBefore(end)) {
-//            String fileName = StringTools.generateRandomString(12);
-//            Part p = eventForm.getPicture();
-//            p.write(fileName);
-//            File picture = new File("/tmp/" + fileName);
-//
-//            String pictureBase64 = ImageTools.encodeImageBase64(picture, "jpg");
-        	//TODO => The Event is Created but not linked with a user ID..
-           es.create(eventForm);
-    
-//            String[] parameters = new String[] { "PlaylistModule", "TriCountModule", "PicturesModule", "ChatModule",
-//                    "MiniGameModule", "CarpoolingModule", "BringModule" };
-//
-//            for (String parameter : parameters) {
-//                String checkBoxValue = request.getParameter(parameter);
-//                if (checkBoxValue != null) {
-//                    switch (parameter) {
-//                        case "PlaylistModule":
-//                            es.addModuleByEvent(evt, TypeModule.PlaylistModule);
-//                            break;
-//                        case "TriCountModule":
-//                            es.addModuleByEvent(evt, TypeModule.TriCountModule);
-//                            break;
-//                        case "PicturesModule":
-//                        	es.addModuleByEvent(evt, TypeModule.PicturesModule);
-//                            break;
-//                        case "ChatModule":
-//                            es.addModuleByEvent(evt, TypeModule.ChatModule);
-//                            break;
-//                        case "MiniGameModule":
-//                            es.addModuleByEvent(evt, TypeModule.MiniGameModule);
-//                            break;
-//                        case "CarpoolingModule":
-//                            es.addModuleByEvent(evt, TypeModule.CarpoolingModule);
-//                            break;
-//                        case "BringModule":
-//                            es.addModuleByEvent(evt, TypeModule.BringModule);
-//                            break;
-//                    }
-//                }
-//            }
+            String randomString = StringTools.generateRandomString(12);
+        	InputStream inputStream = file.getInputStream();
+        	File fileForm = new File(randomString + file.getOriginalFilename());
+        	OutputStream outputStream = new FileOutputStream("/tmp/" + fileForm);
+        	
+        	String pictureBase64 = ImageTools.encodeImageBase64(inputStream, "jpg");
+
+        	eventForm.setPicture(pictureBase64);        	
+        	es.create(eventForm);
+        	inputStream.close();
+        	outputStream.close();
+        	fileForm.delete();
+        	
+            for (String module : eventForm.getListModule()) {
+            	System.out.println(module);
+                    switch (module) {
+                        case "PlaylistModule":
+                            es.addModuleByEvent(eventForm, TypeModule.PlaylistModule);
+                            break;
+                        case "TriCountModule":
+                            es.addModuleByEvent(eventForm, TypeModule.TriCountModule);
+                            break;
+                        case "PicturesModule":
+                        	es.addModuleByEvent(eventForm, TypeModule.PicturesModule);
+                            break;
+                        case "ChatModule":
+                            es.addModuleByEvent(eventForm, TypeModule.ChatModule);
+                            break;
+                        case "MiniGameModule":
+                            es.addModuleByEvent(eventForm, TypeModule.MiniGameModule);
+                            break;
+                        case "CarpoolingModule":
+                            es.addModuleByEvent(eventForm, TypeModule.CarpoolingModule);
+                            break;
+                        case "BringModule":
+                            es.addModuleByEvent(eventForm, TypeModule.BringModule);
+                            break;
+                    }
+            }
+            
+            es.update(eventForm);
 
             model.addAttribute("event", eventForm);
-		    return "event";
+            
+            //TODO => Presque ça ! Ici on ramène tous les modules qui existe dans l'enum
+            model.addAttribute("modules", TypeModule.values());
+            return "event";
         }  else {	
             String message = "La date de début ne peut pas être inférieure à la date de fin !";
             

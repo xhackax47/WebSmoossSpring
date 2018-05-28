@@ -22,7 +22,7 @@ public class PictureController {
 	@Autowired
 	private EventService es;
 
-	@RequestMapping(value = "/ProfileController", method = RequestMethod.GET)
+//	@RequestMapping(value = "/ProfileController", method = RequestMethod.GET)
 	public String showPictures(HttpServletRequest request, HttpServletResponse response) {
 		Long eventId = Long.parseLong(request.getParameter("idEvent"));
 		Event e = es.read(eventId);

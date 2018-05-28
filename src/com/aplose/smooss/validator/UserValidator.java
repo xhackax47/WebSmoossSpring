@@ -28,7 +28,8 @@ public class UserValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "NotEmpty", "*Veuillez entrer un prénom.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "NotEmpty", "*Veuillez entrer un nom.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty", "*Veuillez entrer un mot de passe.");
-
+		ValidationUtils.rejectIfEmpty(errors, "checkBoxCGU", "NotEmpty", "*Vous devez accepter nos conditions générales d'utilisation.");
+		
         if ( userService.findUserByEmail(user.getEmail()) != null ) {
             errors.reject("email", "*Addresse mail déjà utilisé.");
         }

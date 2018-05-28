@@ -101,14 +101,17 @@
 					<form:errors cssClass="errors" path="passwordConf"/>
 				</spring:bind>				
 			</div>
-			<div class="form-group" style="text-align: center;">
-				<spring:bind path="checkBoxCGU">
+			<spring:bind path="checkBoxCGU">
+				<div class="form-group" style="text-align: center;">
+				
 					<form:checkbox id="checkBoxCGU" value="on" path="checkBoxCGU" />
-					<form:errors path="checkBoxCGU"/>
-				</spring:bind>
-				<a href="cgu.view" style="padding: 10px;">J'ai lu et j'accepte
-					les Conditions Générales d'Utilisation</a>
-			</div>
+					<a href="cgu.view" style="padding: 10px;">J'ai lu et j'accepte
+						les Conditions Générales d'Utilisation</a>
+				</div>
+				<div class="form-group text-center">
+					<form:errors cssClass="errors" path="checkBoxCGU"/>
+				</div>
+			</spring:bind>
 			<button type="submit" class="btn btn-primary button-submit">S'inscrire</button>
 
 		</form:form>

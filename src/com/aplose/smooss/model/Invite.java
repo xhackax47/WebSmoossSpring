@@ -1,9 +1,11 @@
 package com.aplose.smooss.model;
 
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import javax.persistence.ManyToOne;
 
 /**
@@ -21,6 +23,8 @@ public class Invite {
 	private Event event;
 	@ManyToOne
 	private User invited;
+	
+	
 	
 	public List<Invite> findInviteByUser(User login) {
 		return null;

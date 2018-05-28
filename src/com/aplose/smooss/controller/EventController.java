@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aplose.smooss.model.Event;
 import com.aplose.smooss.services.EventService;
 
+
+@Controller
 @MultipartConfig(location = "/tmp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024
 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
-@Controller
 public class EventController {
 	
 	@Autowired
 	private EventService es;
 	
-	@GetMapping(value = "/EventController")
+	@GetMapping(value = "/event")
 	public String showEventList(HttpServletRequest request, HttpServletResponse response, Model model) {
 //		model.addAttribute("event", new Event());
 		//TODO verify if / else ?! 

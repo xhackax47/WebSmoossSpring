@@ -12,6 +12,7 @@ import com.aplose.smooss.services.UserService;
 
 @Controller
 public class ProfileController {
+	
 	@Autowired
 	private UserService us;
 

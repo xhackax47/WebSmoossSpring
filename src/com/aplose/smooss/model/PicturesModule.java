@@ -2,20 +2,18 @@ package com.aplose.smooss.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-/**
- * This class extends Module and create a PicturesModule 
- * containing a list of Picture.
- * @author SmoossTeam
- */
 @Entity
 public class PicturesModule extends Module {
 
 	@OneToMany
 	private List<Picture> pictures;
 
+	
+	
 	public List<PicturesModule> asList(PicturesModule[] picture) {
 
 		List<PicturesModule> result = new ArrayList<PicturesModule>();
@@ -24,6 +22,7 @@ public class PicturesModule extends Module {
 			result.add(pict);
 
 		}
+		
 		return result;
 	}
 
@@ -34,5 +33,4 @@ public class PicturesModule extends Module {
 	public void setPictures(List<Picture> pictures) {
 		this.pictures = pictures;
 	}
-
 }

@@ -11,12 +11,14 @@ import javax.persistence.Id;
  */
 @Entity
 public class Url {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	
 	private String url;
 
+	
+	
 	public String getUrl() {
 		return url;
 	}
@@ -24,6 +26,4 @@ public class Url {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
-	
 }

@@ -5,10 +5,10 @@ import com.aplose.smooss.model.CarPoolingModule;
 import com.aplose.smooss.model.ChatModule;
 import com.aplose.smooss.model.MiniGameModule;
 import com.aplose.smooss.model.Module;
-import com.aplose.smooss.model.Module.TypeModule;
 import com.aplose.smooss.model.PicturesModule;
 import com.aplose.smooss.model.PlaylistModule;
 import com.aplose.smooss.model.TriCountModule;
+import com.aplose.smooss.model.TypeModule;
 
 /**
  * This class allows to create a module with a corresponding type
@@ -56,5 +56,4 @@ public class FactoryModule {
 		}
 		return module;
 	}
-
 }

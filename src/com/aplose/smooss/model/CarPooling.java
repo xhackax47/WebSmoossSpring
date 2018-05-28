@@ -12,8 +12,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class CarPooling {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	
 }

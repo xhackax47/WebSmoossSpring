@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 public class MiniGameModule extends Module{
 
 	private String nameGame;
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -22,6 +25,4 @@ public class MiniGameModule extends Module{
 	public void setNameGame(String nameGame) {
 		this.nameGame = nameGame;
 	} 
-	
-
 }

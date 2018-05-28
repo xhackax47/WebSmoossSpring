@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.aplose.smooss.model.User;
 
-@Service("userService")
+@Service
 public class UserService {
 	
 	@PersistenceContext
@@ -61,8 +61,7 @@ public class UserService {
 		try {
 			u = findByEmailAndPasswords.getSingleResult();
 		} catch (NoResultException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return u; 
 	}
