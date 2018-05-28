@@ -7,9 +7,9 @@
    <name>smooss</name>
 	<url>http://www.smooss.fr</url>
 	<scm>
-		<connection>scm:git:https://github.com/aplose/Formation-POEI-Capgemini.git</connection>
-		<developerConnection>scm:git:https://github.com/aplose/Formation-POEI-Capgemini.git</developerConnection>
-		<url>scm:git:https://github.com/aplose/Formation-POEI-Capgemini.git</url>
+		<connection>scm:git:https://github.com/aplose/WebSmoossSpring.git</connection>
+		<developerConnection>scm:git:https://github.com/aplose/WebSmoossSpring.git</developerConnection>
+		<url>https://github.com/aplose/WebSmoossSpring.git</url>
 	</scm>
 	<description>Ce projet est le fil rouge de la formation POEI organisée par Aplose pour le compte de UpTo/FACE-Hérault dans le cadre du recrutement de Cap Gémini Montpellier</description>
 	<developers>
@@ -189,4 +189,50 @@
 			<version>6.0.10.Final</version>
 		</dependency>	    
   </dependencies>
+  <reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.9.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.0.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.21.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+		</plugins>
+</reporting>
 </project>
