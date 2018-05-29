@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
@@ -43,6 +45,7 @@ public class Event{
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	List<Module> modules = new ArrayList<Module>();
 	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	List<User> participants = new ArrayList<User>();
 
 	@Transient
