@@ -3,13 +3,19 @@ package com.aplose.smooss.services;
 import java.time.Instant;
 import java.util.List;
 
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import com.aplose.smooss.exception.EmailException;
 import com.aplose.smooss.model.Event;
 import com.aplose.smooss.model.User;
 
 import junit.framework.TestCase;
 
-public class EventServiceTest extends TestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration
+public class EventServiceTest {
 	
 	public void testFindEventsByUser() {
 		
