@@ -93,6 +93,12 @@ public class EventService {
 	public void delete(Event evt) {
 		entityManager.remove(evt);
 	}
+	
+	@Transactional
+	public void deleteById(long id) {
+		Event evt = entityManager.find(Event.class, id);
+		entityManager.remove(evt);
+	}
 
 	@Transactional
 	public void addUserByEvent(Event evt, User user) {
