@@ -30,11 +30,8 @@ public class Picture {
 	private String description;
 	@ManyToOne
 	private User author;
-	@OneToMany
-	private List<Comment> comments = new ArrayList<Comment>();
-	
-	
-	
+//	@OneToMany
+//	private List<Comment> comments = new ArrayList<Comment>();
 	
 	public Picture() {};
 	
@@ -77,7 +74,7 @@ public class Picture {
 		return author;
 	}
 	
-	public List<Comment> getComments(){
-		return comments;	
-	}	
+//	public List<Comment> getComments(){
+//		return comments;	
+//	}	
 }

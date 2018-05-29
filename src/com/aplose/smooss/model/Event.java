@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +40,7 @@ public class Event{
 	private Instant end;
 	@Lob
 	private String picture;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	List<Module> modules = new ArrayList<Module>();
 	@ManyToMany
 	List<User> participants = new ArrayList<User>();

@@ -3,13 +3,15 @@ package com.aplose.smooss.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 @Entity
 public class PicturesModule extends Module {
 
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Picture> pictures;
 
 	

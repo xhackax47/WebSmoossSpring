@@ -22,34 +22,35 @@ public class PictureService {
 	private EntityManager entityManager;
 	
 	@Autowired
-	private EventService eventService;
+	private EventService es;
 	
-	
-	
+	//CREATE PICTURE
 	@Transactional
-	public Picture create(Event e, String imgBase64, String name, String description, User author) {
-		
-		Picture p = new Picture(imgBase64, name, description, author);
-		PicturesModule pm = (PicturesModule)eventService.findModuleByEvent(e, TypeModule.PicturesModule);
-		
-		
+	private void createPicture(Event e, Picture p) {
+		PicturesModule pm = (PicturesModule)es.findModuleByEvent(e, TypeModule.PicturesModule);
 		List<Picture> pictures = pm.getPictures();
 		pictures.add(p);
 		pm.setPictures(pictures);
-		
-		//Persist picture and merge to event
 		entityManager.persist(p);
 		this.updatePictureModule(pm);
-		return p;
-		
 	}
+	
+	public void createPictureRest(Long id, Picture p) {
+		Event e = es.read(id);
+		createPicture(e,p);
+	}
+	
+	public Picture create(Event e, String imgBase64, String name, String description, User author) {
+		Picture p = new Picture(imgBase64, name, description, author);
+		createPicture(e,p);
+		return p;
+	}
+	//END
 	
 	@Transactional(readOnly = true)
 	public Picture read(Long id) {
-	
 		Picture p = entityManager.find(Picture.class, id);
-		
-		return p;	
+		return p;
 	}
 	
 	@Transactional
@@ -62,7 +63,7 @@ public class PictureService {
 	@Transactional
 	public void delete(Picture p, Event e) {
 		
-		PicturesModule pm = (PicturesModule)eventService.findModuleByEvent(e, TypeModule.PicturesModule);
+		PicturesModule pm = (PicturesModule)es.findModuleByEvent(e, TypeModule.PicturesModule);
 		List<Picture> pictures = pm.getPictures();
 		pictures.remove(p);
 		pm.setPictures(pictures);
@@ -78,10 +79,11 @@ public class PictureService {
 		return pictureModule;
 	}
 	
-	public List<Picture> findPicturesByEvent(Event e){
-		
+	
+	//READ ALL PICTURES BY EVENT
+	@Transactional(readOnly=true)
+	private List<Picture> readAllPictureByEvent(Event e) {
 		List<Picture> pictures = null;
-		
 		for(Module m : e.getModules()) {
 			if(m instanceof PicturesModule) {
 				pictures = ((PicturesModule)m).getPictures();
@@ -90,9 +92,18 @@ public class PictureService {
 		if(pictures == null) {
 			pictures = new ArrayList<Picture>();
 		}
-		
 		return pictures;
 	}
-
+	
+	
+	public List<Picture> findPicturesByEvent(Event e){
+		return this.readAllPictureByEvent(e);
+	}
+	
+	public List<Picture> findPicturesByEventRest(Long id){
+		Event e = es.read(id);
+		return this.readAllPictureByEvent(e);
+	}
+	//END
 
 }
