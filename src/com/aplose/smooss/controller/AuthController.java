@@ -83,7 +83,8 @@ public class AuthController {
 		}
 		
 		us.create(userForm);
-		es.sendMail(userForm.getEmail(), "contact@smooss.fr", "Votre inscription sur Smooss!", "Bienvenue sur Smooss "+userForm.getFirstName()+" ! Veuillez trouvez tous les renseignements concernant votre compte.");
+		es.sendMail(userForm.getEmail(), "contact@smooss.fr", "Bonjour "+userForm.getFirstName()+" !", "Bienvenue sur Smooss "+userForm.getFirstName()+
+				" ! Nous sommes heureux de vous comptez parmis nos membres ! A très vite sur www.smooss.fr");
 
 		//TODO auto login !!!
 		return "redirect:home";
