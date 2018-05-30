@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>SpringSmooss</groupId>
-  <artifactId>SpringSmooss</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-   <name>smooss</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SpringSmooss</groupId>
+	<artifactId>SpringSmooss</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>smooss</name>
 	<url>http://www.smooss.fr</url>
 	<scm>
 		<connection>scm:git:https://github.com/aplose/WebSmoossSpring.git</connection>
@@ -13,103 +15,111 @@
 	</scm>
 	<description>Ce projet est le fil rouge de la formation POEI organisée par Aplose pour le compte de UpTo/FACE-Hérault dans le cadre du recrutement de Cap Gémini Montpellier</description>
 	<developers>
-    <developer>
-      <id>TwiKeySen</id>
-      <name>Thomas Gonzalez</name>
-      <email>tomas.gonzalez.vega@gmail.com</email>
-      <roles>
-        <role>Product Owner</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>GustaveDwayne</id>
-      <name>Martin Massé</name>
-      <email>masse.gd@gmail.com</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>xhackax47</id>
-      <name>Samy Chaabi</name>
-      <email>xhackax47@gmail.com</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>aplose</id>
-      <name>Olivier Andrade</name>
-      <email>oandrade@aplose.fr</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>Youlie</id>
-      <name>Julie Lefèvre</name>
-      <email>julie.lefebvre26@outlook.fr</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>alexv3438</id>
-      <name>Alexandre Valls</name>
-      <email>alex.valls@bbox.fr</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>SonjaCler</id>
-      <name>Sonia Clermidy</name>
-      <email>sonia.clermidy@hotmail.fr</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>Rachid34</id>
-      <name>Rachid Chouikhi</name>
-      <email>rachid.chouikhi@hotmail.fr</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>Novhiliel</id>
-      <name>Cynthia Zimmer</name>
-      <email>zimmer.cynthia@gmail.com</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-  </developers>
-  
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.0.0</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  
-  <dependencies>
-  		<dependency>	
+		<developer>
+			<id>TwiKeySen</id>
+			<name>Thomas Gonzalez</name>
+			<email>tomas.gonzalez.vega@gmail.com</email>
+			<roles>
+				<role>Product Owner</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>GustaveDwayne</id>
+			<name>Martin Massé</name>
+			<email>masse.gd@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>xhackax47</id>
+			<name>Samy Chaabi</name>
+			<email>xhackax47@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>aplose</id>
+			<name>Olivier Andrade</name>
+			<email>oandrade@aplose.fr</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>Youlie</id>
+			<name>Julie Lefèvre</name>
+			<email>julie.lefebvre26@outlook.fr</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>alexv3438</id>
+			<name>Alexandre Valls</name>
+			<email>alex.valls@bbox.fr</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>SonjaCler</id>
+			<name>Sonia Clermidy</name>
+			<email>sonia.clermidy@hotmail.fr</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>Rachid34</id>
+			<name>Rachid Chouikhi</name>
+			<email>rachid.chouikhi@hotmail.fr</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>Novhiliel</id>
+			<name>Cynthia Zimmer</name>
+			<email>zimmer.cynthia@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<hibernate.version>5.3.1.Final</hibernate.version>
+		<springframework.version>5.0.6.RELEASE</springframework.version>
+		<springsecurity.version>5.0.5.RELEASE</springsecurity.version>
+		<jackson.library>2.9.5</jackson.library>
+	</properties>
+
+	<dependencies>
+		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>7.0</version>
@@ -119,47 +129,6 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.11</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>2.9.5</version>
-		</dependency>
-		<dependency>
-		   <groupId>commons-dbcp</groupId>
-		   <artifactId>commons-dbcp</artifactId>
-		   <version>1.4</version>
-		</dependency>
-		<dependency>
-		    <groupId>commons-fileupload</groupId>
-		    <artifactId>commons-fileupload</artifactId>
-		    <version>1.3.3</version>
-		</dependency>
-	    <dependency>
-	        <groupId>commons-io</groupId>
-	        <artifactId>commons-io</artifactId>
-	        <version>2.5</version>
-	    </dependency>	    
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.2.16.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-c3p0</artifactId>
-		    <version>5.2.16.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -172,29 +141,106 @@
 			<version>2.4.0</version>
 			<scope>test</scope>
 		</dependency>
-  		<dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.library}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>${jackson.library}</version>
+		</dependency>
+		<!-- Tests unitaires Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Framework Spring -->
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>5.0.6.RELEASE</version>
+			<version>${springframework.version}</version>
 		</dependency>
-	    <dependency>
-	    	<groupId>org.springframework</groupId>
-	    	<artifactId>spring-orm</artifactId>
-	    	<version>5.0.6.RELEASE</version>
-	    </dependency>
-	    <dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>servlet-api</artifactId>
-		    <version>2.5</version>
-		    <scope>provided</scope>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<!-- Spring Security OAuth2 -->
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Framework Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.0.10.Final</version>
-		</dependency>	    
-  </dependencies>
-  <reporting>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+	</dependencies>
+	<reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -239,5 +285,5 @@
 				<version>2.7</version>
 			</plugin>
 		</plugins>
-</reporting>
+	</reporting>
 </project>
