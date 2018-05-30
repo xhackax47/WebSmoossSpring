@@ -1,5 +1,7 @@
 package com.aplose.smooss.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,24 +20,24 @@ public class ProfileController {
 
 
 	@GetMapping(value="/profile")
-	public String managementProfil(Model model) {
-		model.addAttribute("userProfilForm", new User());
+	public String managementProfil(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		model.addAttribute("userProfilForm", user);
 
 		return "profile";
 	}
 	
 	@PostMapping(value="/profile")
-	public String managementProfil(@ModelAttribute("userProfilForm") User userProfilForm, BindingResult bindingResult, Model model) {
-//		String extension = null;
-//		Part part = request.getPart("file");
-//		String fileName = StringTools.generateRandomString(12);
-//		part.write(fileName);	
-//		File picture = new File("/tmp/"+fileName);
-//		extension = ImageTools.getFileFormat(picture);
-//		userProfilForm.setPicture(ImageTools.encodeImageBase64(picture, extension));
-//		
+	public String managementProfil(@ModelAttribute("userProfilForm") User userProfilForm, HttpSession session) {
+		
+		User user = (User) session.getAttribute("user");
+		userProfilForm.setId(user.getId());
 		us.update(userProfilForm);
-		return "profile";
+		
+		session.setAttribute("user", userProfilForm);
+		return "redirect:profile";
+		
 	}
 
 }

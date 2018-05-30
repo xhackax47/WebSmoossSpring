@@ -28,18 +28,18 @@ public class EventControllerRest {
 		return eS.read(id);
 	}
 	
-	@PostMapping
-	public void createEvent(Event evt) {
-		eS.create(evt);
-	}
-	
-	@DeleteMapping("{id}")
-	public void deleteEvent(@PathVariable("id") Long id) {
-		eS.deleteById(id);
-	}
-	
-	@PutMapping("{id}")
-	public void updateEvent(@PathVariable("id") Event evt) {
-		eS.update(evt);
-	}
+//	@PostMapping
+//	public void createEvent(Event evt) {
+//		eS.create(evt);
+//	}
+//	
+//	@DeleteMapping("{id}")
+//	public void deleteEvent(@PathVariable("id") Long id) {
+//		eS.deleteById(id);
+//	}
+//	
+//	@PutMapping("{id}")
+//	public void updateEvent(@PathVariable("id") Event evt) {
+//		eS.update(evt);
+//	}
 }

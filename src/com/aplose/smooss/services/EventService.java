@@ -21,8 +21,6 @@ public class EventService {
 	private EntityManager entityManager;
 	private static FactoryModule fm = new FactoryModule();
 	
-	
-	
 	@Transactional
 	public void create(Event evt) {
 		entityManager.persist(evt);
