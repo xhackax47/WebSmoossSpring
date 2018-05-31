@@ -84,7 +84,7 @@ public class AuthController {
 		
 		us.create(userForm);
 		es.sendMail(userForm.getEmail(), "contact@smooss.fr", "Bonjour "+userForm.getFirstName()+" !", "Bienvenue sur Smooss "+userForm.getFirstName()+
-				" ! Nous sommes heureux de vous comptez parmis nos membres ! A très vite sur www.smooss.fr");
+				" ! Nous sommes heureux de vous compter parmi nos membres ! A très vite sur www.smooss.fr");
 
 		//TODO auto login !!!
 		return "redirect:home";
