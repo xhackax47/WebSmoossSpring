@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.aplose.smooss.factory.FactoryModule;
@@ -20,6 +22,9 @@ public class EventService {
 	@PersistenceContext
 	private EntityManager entityManager;
 	private static FactoryModule fm = new FactoryModule();
+	
+	@Autowired
+	private UserService userService;
 	
 	@Transactional
 	public void create(Event evt) {
@@ -48,6 +53,13 @@ public class EventService {
 		return result;
 	}
 
+	@Transactional(readOnly = true)
+	public List<Event> findEventsByUserId(Long id) {
+		User u = userService.read(id);
+		
+		return this.findEventsByUser(u);
+	}
+	
 	public Module findModuleByEvent(Event e, TypeModule t) {
 		
 		Module module = null;

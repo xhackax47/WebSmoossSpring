@@ -1,5 +1,7 @@
 package com.aplose.smooss.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -26,6 +28,12 @@ public class EventControllerRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Event showEvent(@PathVariable("id") Long id){
 		return eS.read(id);
+	}
+	
+	@GetMapping("/user/{id}")
+	public List<Event> showListEventByUser(@PathVariable("id") Long id) {
+		
+		return eS.findEventsByUserId(id);
 	}
 	
 //	@PostMapping
