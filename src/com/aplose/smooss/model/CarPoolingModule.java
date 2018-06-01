@@ -19,11 +19,13 @@ public class CarPoolingModule extends Module {
 	@OneToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<CarPooling> carPooling;
-
-	
-	
+ 
 	public List<CarPooling> getCarPooling() {
 		return carPooling;
+	}
+
+	public void setCarPooling(List<CarPooling> carPooling) {
+		this.carPooling = carPooling;
 	}
 	
 }
