@@ -17,10 +17,9 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class CarPoolingModule extends Module {
 
 	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<CarPooling> carPooling;
-
-
-	@LazyCollection(LazyCollectionOption.FALSE) 
+ 
 	public List<CarPooling> getCarPooling() {
 		return carPooling;
 	}
