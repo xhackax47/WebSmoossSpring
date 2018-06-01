@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 /**
  * This class extends Module and create a CarPoolingModule 
  * that contains a list of zero or more CarPooling Objects.
@@ -17,10 +20,10 @@ public class CarPoolingModule extends Module {
 	private List<CarPooling> carPooling;
 
 
+	@LazyCollection(LazyCollectionOption.FALSE) 
 	public List<CarPooling> getCarPooling() {
 		return carPooling;
 	}
-
 
 	public void setCarPooling(List<CarPooling> carPooling) {
 		this.carPooling = carPooling;
