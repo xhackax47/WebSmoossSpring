@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.aplose.smooss.exception.EmailException;
 import com.aplose.smooss.model.ApiError;
+import com.aplose.smooss.model.Login;
 import com.aplose.smooss.model.User;
 import com.aplose.smooss.services.UserService;
 
@@ -46,6 +47,21 @@ public class AuthControllerRest {
 			return new ResponseEntity<Object>(new ApiError(HttpStatus.BAD_REQUEST, "Email déjà existant"), HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@CrossOrigin
+    @PostMapping(path="/login", consumes="application/json")
+    public ResponseEntity<Object> login(@RequestBody Login l){
+        if(uS.findByEmailAndPassword(l.getEmail(), l.getPassword()) != null)
+        {
+        	return new ResponseEntity<Object>(l, HttpStatus.ACCEPTED);
+        }
+        else
+        {
+        	System.out.println("non nice");
+        	return new ResponseEntity<Object>("non nice", HttpStatus.BAD_REQUEST);
+        }
+        
+    }
 	
 	@DeleteMapping("{id}")
 	public void deleteUser(@PathVariable("id") Long id) {
