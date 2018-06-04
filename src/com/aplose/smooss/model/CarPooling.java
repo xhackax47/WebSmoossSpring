@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 /**
  * This class will be called in CarPoolingModule 
  * each time a Carpooling object is created
@@ -27,11 +30,14 @@ public class CarPooling {
 	private User driver;
 	private int seats;
 	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<User> passengers = new ArrayList<>();
 	private String startLocation;
 	private String endLocation;
 	private Instant departureTime;
 	private Instant returnTime;
+	
+	public CarPooling() {}
 	
 	public CarPooling(User driver, int seats, String startLocation, String endLocation, Instant departureTime, Instant returnTime){
 		this.driver = driver;
