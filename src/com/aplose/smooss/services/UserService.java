@@ -4,18 +4,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
+
 import com.aplose.smooss.exception.EmailException;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aplose.smooss.model.User;
 
 @Service
 public class UserService {
 	
+	
+	private UserService userS;
+	
 	@PersistenceContext
 	private EntityManager em;
+	
 	
 
 	@Transactional
@@ -95,5 +100,10 @@ public class UserService {
 			// TODO ajouter une log si nécessaire
 		}
 		return u;
+	}
+	@Transactional(readOnly = true)
+	public void updateUser(Long id) {
+		User u = userS.read(id);
+		this.update(u);
 	}
 }

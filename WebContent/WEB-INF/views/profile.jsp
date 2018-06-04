@@ -71,6 +71,7 @@
 
 				<div class="col-3 col-sm-4 col-xs-4">
 						<div class="spaceInput">
+						<spring:bind path="fileData">
 							<c:choose>
 								<c:when test="${user.picture == NULL}" >
 									<img class="default-img-profile" src="resources/img/defaultIcon.png"
@@ -82,7 +83,7 @@
 								</c:otherwise>
 							</c:choose>
 							
-							<spring:bind path="fileData">
+							
 								<form:input type="file" path="fileData"/><br>
 								<form:errors path="fileData"/>	
 							</spring:bind>
